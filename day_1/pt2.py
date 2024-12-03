@@ -10,9 +10,6 @@ for line in inp:
     first.append(f)
     second.append(s)
 
-count = 0
-
-for elmn in first:
-    count += elmn * second.count(elmn)
+count = sum(e * second.count(e) for e in first)
 
 print(count)
