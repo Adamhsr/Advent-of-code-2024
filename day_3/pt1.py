@@ -9,6 +9,4 @@ s = 0
 for y in x:
     s += int(y.split(',')[0].split("mul(")[1]) * int(y.split(',')[1].split(")")[0])
 
-print(sum(int(e.split(',')[0].split("mul(")[1]) * int(y.split(',')[1].split(")")[0] for y in x)))
-
 print(s)
