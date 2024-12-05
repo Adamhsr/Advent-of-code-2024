@@ -4,9 +4,13 @@ with open('./day_5/input.txt', 'r') as file:
 from functools import cmp_to_key
 
 result = 0
-incorrect = []
 
-top = inp[0].split("\n")
+top = set(inp[0].split("\n"))
+
+bottom = inp[1].split("\n")
+
+def check(a, b):
+    return not (b + "|" + a) in top
 
 def checklist(lst):
     works = True
@@ -15,22 +19,11 @@ def checklist(lst):
             works = works and check(lst[i], lst[j])
     return works
 
-def check(a, b):
-    for line in top:
-        p1, p2 = line.split("|")
-        if p2 == a and p1 == b:
-            return False
-    return True
-
-bottom = inp[1].split("\n")
-
-
 def sort2(a, b):
-    for line in top:
-        p1, p2 = line.split("|")
-        if p2 == a and p1 == b:
-            return 1
+    if check(a, b):
+        return 1
     return -1
+
 
 for update in bottom:
     u = update.split(',')

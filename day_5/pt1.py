@@ -3,14 +3,10 @@ with open('./day_5/input.txt', 'r') as file:
 
 result = 0
 
-top = inp[0].split("\n")
+top = set(inp[0].split("\n"))
 
 def check(a, b):
-    for line in top:
-        p1, p2 = line.split("|")
-        if p2 == a and p1 == b:
-            return False
-    return True
+    return not (b + "|" + a) in top
 
 bottom = inp[1].split("\n")
 
