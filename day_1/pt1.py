@@ -4,10 +4,9 @@ with open('./day_1/input.txt', 'r') as file:
 first = []
 second = []
 
-for line in inp:
-    (f, s) = map( int, line.split())
-    first.append(f)
-    second.append(s)
+
+first, second = map(list, list(zip(*((int(x) for x in line.split()) for line in inp))))
+
 
 first.sort()
 second.sort()
